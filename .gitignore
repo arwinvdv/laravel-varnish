@@ -1,6 +1,2 @@
-build
-composer.lock
-docs
-vendor
-*.cache
-
+node_modules/
+.env
