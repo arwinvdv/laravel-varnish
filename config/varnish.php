@@ -27,6 +27,13 @@ return [
     'use_sudo' => true,
 
     /*
+     * The path to the varnishadm command. Defaults to 'varnishadm' which assumes
+     * it's in the system PATH. You can specify a full path like '/usr/local/bin/varnishadm'
+     * if needed.
+     */
+    'varnishadm_command' => 'varnishadm',
+
+    /*
      * The default amount of minutes that content rendered using the `CacheWithVarnish`
      * middleware should be cached.
      */

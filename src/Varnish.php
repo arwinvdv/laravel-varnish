@@ -60,8 +60,9 @@ class Varnish
 
         $sudoPrefix = $config['use_sudo'] ? 'sudo ' : '';
         $adminHost = $config['administrative_host'] ?? '127.0.0.1';
+        $varnishadmCommand = $config['varnishadm_command'] ?? 'varnishadm';
 
-        return "{$sudoPrefix}varnishadm -S {$config['administrative_secret']} -T {$adminHost}:{$config['administrative_port']} 'ban req.http.host ~ {$hostsRegex}{$urlRegex}'";
+        return "{$sudoPrefix}{$varnishadmCommand} -S {$config['administrative_secret']} -T {$adminHost}:{$config['administrative_port']} 'ban req.http.host ~ {$hostsRegex}{$urlRegex}'";
     }
 
     protected function executeCommand(string $command): Process
